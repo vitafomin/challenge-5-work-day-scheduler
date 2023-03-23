@@ -1,5 +1,6 @@
 var container = $(".time-block");
-var description = $(".description");
+// var description = $(".description");
+var textarea = $(".time-block");
 
 
 
@@ -10,10 +11,15 @@ $(function () {
   // TODO: Add a listener for click events on the save button. This code should
 
   container.on("click", ".saveBtn", function() {
-    var descriptionEvent = description.val();
+    console.log($(this).parent().attr("id"))
+    var descriptionEvent = $(this).parent().children().eq(1).val();
+    console.log(descriptionEvent)
+  
 
-    localStorage.setItem("descriptionEvent", JSON.stringify());
-  })
+
+    localStorage.setItem($(this).parent().attr("id"), descriptionEvent);
+
+  });
 
 
 
@@ -35,9 +41,29 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
 
+  // function getAllItems() {
+    var items = localStorage.getItem(localStorage.key(i));
+
+    for (var i = 0; i < localStorage.length; i++){
+
+      console.log(localStorage.getItem(localStorage.key(i)))
+
+      textarea.text(items);
+
+
+    };
+
+    
+
+  
+  
+
+  // (localStorage.getItem.key(i))
   
   // TODO: Add code to display the current date in the header of the page.
 
   var currentDay = dayjs();
   $("#currentDay").text(currentDay.format("dddd MMMM D, YYYY"));
+
+
 });
