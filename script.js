@@ -2,18 +2,14 @@ var container = $(".time-block");
 var timeBlock = $(".time-block");
 var hour = dayjs().get("hour");
 var currentTime = dayjs().hour();
-// currentTime = 11
+// currentTime = 11 - test
 console.log("Date: ", currentTime);
-
-console.log(timeBlock.parent());
-
-console.log(hour);
-
-
 
 for (var i = 9; i <= 17; i++) {
   if (currentTime == i) {
+    // how we could write the line below with vanilla JS:
    // document.querySelector("#hour-" + i).classList.add("present");
+
     $("#hour-" + i).addClass("present") 
   }
   else if (currentTime > i) {
@@ -24,14 +20,13 @@ for (var i = 9; i <= 17; i++) {
   }
 }
 
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
 
   container.on("click", ".saveBtn", function () {
+
     console.log($(this).parent().attr("id"));
+
     var descriptionEvent = $(this).parent().children().eq(1).val();
     console.log(descriptionEvent);
 
@@ -64,12 +59,14 @@ $(function () {
 
 
   for (var i = 0; i < localStorage.length; i++) {
+    
     // We grab the data from Local Storage
     var data = localStorage.key(i);
     var savedItems = localStorage.getItem(data);
 
     console.log("Key: ", data);
     console.log("Info: ", savedItems);
+
     // this puts the info ON THE DOM
     $("#" + data).find(".description").val(savedItems);
 
