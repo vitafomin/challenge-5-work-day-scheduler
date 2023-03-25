@@ -1,5 +1,4 @@
 var container = $(".time-block");
-var timeBlock = $(".time-block");
 var hour = dayjs().get("hour");
 var currentTime = dayjs().hour();
 // currentTime = 11 - test
