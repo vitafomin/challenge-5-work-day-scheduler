@@ -1,4 +1,5 @@
 var container = $(".time-block");
+
 var hour = dayjs().get("hour");
 var currentTime = dayjs().hour();
 // currentTime = 11 - test
@@ -12,7 +13,7 @@ for (var i = 9; i <= 17; i++) {
 
     $("#hour-" + i).addClass("present") 
   }
-  else if (currentTime > i) {
+  else if (currentTime < i) {
     $("#hour-" + i).addClass("future")
   }
   else {
